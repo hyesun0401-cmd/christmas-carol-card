@@ -181,7 +181,7 @@ export function CreateCardForm({ variant = "red" }: { variant?: "red" | "green" 
           장르 선택
         </div>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
-          {GENRES.map((g) => (
+          {GENRES.map((g: { id: Genre; label: string; hint: string }) => (
             <button
               key={g.id}
               type="button"
@@ -253,7 +253,7 @@ export function CreateCardForm({ variant = "red" }: { variant?: "red" | "green" 
                     {kpopArtists.length === 0 ? (
                       <div className="px-3 py-3 text-sm text-black/50">Loading…</div>
                     ) : (
-                      kpopArtists.map((a) => {
+                            kpopArtists.map((a: { slug: string; name: string; songCount: number; imageUrl: string }) => {
                         const active = a.slug === kpopArtistSlug;
                         return (
                           <button
