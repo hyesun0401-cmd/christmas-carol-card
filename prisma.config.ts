@@ -18,7 +18,9 @@ export default defineConfig({
     path: "prisma/migrations",
     seed: "node prisma/seed.cjs",
   },
+  // Note: datasource.url is only needed for migrations/seed, not for `prisma generate`
+  // During Vercel build, DATABASE_URL may not be available, but generate still works.
   datasource: {
-    url: env("DATABASE_URL"),
+    url: process.env.DATABASE_URL || "postgresql://placeholder",
   },
 });
