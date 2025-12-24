@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Genre {
+  POP
+  JAZZ
+  KPOP
+}
+
+model KpopArtist {
+  id        Int      @id @default(autoincrement())
+  /// URL-safe stable identifier (e.g. "exo", "twice")
+  slug      String   @unique
+  name      String
+  createdAt DateTime @default(now())
+
+  songs CarolSong[] @relation("KpopArtistSongs")
+}
+
+model CarolSong {
+  id        Int      @id @default(autoincrement())
+  genre     Genre
+  title     String
+  artist    String
+  floUrl    String
+  createdAt DateTime @default(now())
+
+  kpopArtistId Int?
+  kpopArtist   KpopArtist? @relation("KpopArtistSongs", fields: [kpopArtistId], references: [id], onDelete: SetNull)
+
+  cards Card[]
+
+  @@index([genre])
+  @@index([kpopArtistId])
+}
+
+model Card {
+  /// Shareable short id used in URL like `/card/:id`
+  id        String   @id
+  message   String
+  genre     Genre
+  songId    Int
+  createdAt DateTime @default(now())
+  viewCount Int      @default(0)
+
+  song CarolSong @relation(fields: [songId], references: [id], onDelete: Restrict)
+
+  @@index([genre])
+  @@index([songId])
+  @@index([createdAt])
+}

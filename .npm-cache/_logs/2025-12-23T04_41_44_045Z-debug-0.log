@@ -1,0 +1,19 @@
+0 verbose cli /opt/homebrew/Cellar/node/25.2.1/bin/node /opt/homebrew/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v25.2.1
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/dreamus_01/Desktop/AI/christmas/carol-card/.npmrc
+5 silly config load:file:/Users/dreamus_01/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm exec prisma migrate dev --name kpop_artists --skip-seed
+8 verbose argv "exec" "--" "prisma" "migrate" "dev" "--name" "kpop_artists" "--skip-seed"
+9 verbose logfile logs-max:10 dir:/Users/dreamus_01/Desktop/AI/Christmas/carol-card/.npm-cache/_logs/2025-12-23T04_41_44_045Z-
+10 verbose logfile /Users/dreamus_01/Desktop/AI/Christmas/carol-card/.npm-cache/_logs/2025-12-23T04_41_44_045Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd /Users/dreamus_01/Desktop/AI/christmas/carol-card
+13 verbose os Darwin 25.1.0
+14 verbose node v25.2.1
+15 verbose npm  v11.6.2
+16 verbose exit 1
+17 verbose code 1
+18 error A complete log of this run can be found in: /Users/dreamus_01/Desktop/AI/Christmas/carol-card/.npm-cache/_logs/2025-12-23T04_41_44_045Z-debug-0.log
