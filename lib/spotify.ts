@@ -106,7 +106,7 @@ export async function getSpotifyRecommendationsByGenre(
   const tracks: SpotifyTrack[] = Array.isArray(json.tracks) ? json.tracks : [];
 
   return tracks
-    .map((t) => {
+    .map((t: SpotifyTrack) => {
       const artist =
         Array.isArray(t.artists) && t.artists[0]?.name ? t.artists[0].name : "Unknown";
       const images = t.album?.images;

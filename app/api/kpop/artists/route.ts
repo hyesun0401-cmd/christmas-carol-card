@@ -15,7 +15,7 @@ export async function GET() {
   });
 
   return NextResponse.json({
-    items: artists.map((a) => ({
+    items: artists.map((a: { slug: string; name: string; _count: { songs: number } }) => ({
       slug: a.slug,
       name: a.name,
       imageUrl: `/kpop-artists/${a.slug}.svg`,

@@ -28,7 +28,7 @@ async function getFallbackDbSongs(genre: Genre, limit: number) {
     Array<{ id: number; title: string; artist: string; floUrl: string; genre: Genre }>
   >`SELECT id, title, artist, floUrl, genre FROM CarolSong WHERE genre = ${genre} ORDER BY RANDOM() LIMIT ${limit}`;
 
-  return rows.map((s) => ({
+  return rows.map((s: { id: number; title: string; artist: string; floUrl: string; genre: Genre }) => ({
     id: `db-${s.id}`,
     title: s.title,
     artist: s.artist,
